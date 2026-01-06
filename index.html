@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>E-Voting System</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <h1>🗳️ E-Voting System</h1>
+
+    <!-- VOTING -->
+    <div class="card">
+        <h2>Cast Your Vote</h2>
+        <input id="voterID" placeholder="Enter Voter ID">
+
+        <h3>Touch to Vote</h3>
+        <div class="polling-machine">
+            <div class="poll-row" onclick="selectCandidate(1, this)">
+                <div class="party">
+                    <img src="images/tvk.jpeg"><span>TVK</span>
+                </div><button>VOTE</button>
+            </div>
+
+            <div class="poll-row" onclick="selectCandidate(2, this)">
+                <div class="party">
+                    <img src="images/dmk.png"><span>DMK</span>
+                </div><button>VOTE</button>
+            </div>
+
+            <div class="poll-row" onclick="selectCandidate(3, this)">
+                <div class="party">
+                    <img src="images/admk.png"><span>ADMK</span>
+                </div><button>VOTE</button>
+            </div>
+
+            <div class="poll-row" onclick="selectCandidate(4, this)">
+                <div class="party">
+                    <img src="images/ntk.jpeg"><span>NTK</span>
+                </div><button>VOTE</button>
+            </div>
+        </div>
+
+        <p id="selectedCandidate">No candidate selected</p>
+        <button class="primary" onclick="castVote()">Confirm Vote</button>
+    </div>
+
+    <!-- ADMIN LOGIN -->
+    <div class="card">
+        <h2>🔐 Admin Login</h2>
+        <input id="adminUser" placeholder="Username">
+        <input id="adminPass" type="password" placeholder="Password">
+        <br>
+        <button class="primary" onclick="adminLogin()">Login</button>
+    </div>
+
+    <!-- ADMIN PANEL -->
+    <div id="adminPanel" class="card" style="display:none;">
+        <h2>📊 Results</h2>
+        <button class="logout" onclick="adminLogout()">Logout</button>
+        <h2 id="winner"></h2>
+        <div id="output"></div>
+        <canvas id="barChartCanvas"></canvas>
+        <canvas id="pieChartCanvas"></canvas>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
